@@ -2,8 +2,8 @@ const content = document.querySelector('.content');
 
 const total = 32;
 
-const titleText = 'Title Text';
-let buttonText = 'Button Text';
+const titleText = 'Product #';
+let buttonText = 'Add to cart';
 
 
 for (let i = 0; i < total; i++) {
@@ -17,7 +17,7 @@ for (let i = 0; i < total; i++) {
 
   const title = document.createElement('p');
   title.classList.add('item-title');
-  title.textContent = titleText;
+  title.textContent = titleText + (i + 1);
   item.appendChild(title);
 
   const btn = document.createElement('button');
