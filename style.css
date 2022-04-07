@@ -5,15 +5,15 @@ body {
   padding: 0;
   height: 100vh;
   font-family: 'Lora', serif;
-  background-color: #eefafc;
+  background-color: #edf9fc;
   box-sizing: border-box;
 }
 
 /* ---------- NAVBAR ---------- */
 
 .navbar {
-  background: rgb(94, 96, 206);
-  background: linear-gradient(90deg, rgba(94, 96, 206, 1) 0%, rgba(128, 255, 219, 1) 100%);
+  background: rgba(68, 70, 197, 1);
+  background: linear-gradient(90deg, rgba(68, 70, 197, 1) 0%, rgba(100, 223, 223, 1) 100%);
 }
 
 .navbar ul {
@@ -67,8 +67,13 @@ body {
   border: 2px solid #000;
   border-radius: 8px;
   padding: 4vh;
-  background: rgb(94, 96, 206);
-  background: linear-gradient(90deg, rgba(94, 96, 206, 1) 0%, rgba(128, 255, 219, 1) 100%);
+  background: rgba(83, 85, 202, .9);
+  background: linear-gradient(0deg, rgba(83, 85, 202, .9) 0%, rgba(100, 223, 223, 1) 100%);
+}
+
+.block-item:hover {
+  background: rgba(83, 85, 202, .8);
+  background: linear-gradient(0deg, rgba(83, 85, 202, .8) 0%, rgba(100, 223, 223, .9) 100%);
 }
 
 .item-img {
