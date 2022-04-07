@@ -5,7 +5,11 @@ body {
   padding: 0;
   height: 100vh;
   font-family: 'Lora', serif;
+  background-color: #eefafc;
+  box-sizing: border-box;
 }
+
+/* ---------- NAVBAR ---------- */
 
 .navbar {
   background: rgb(116, 0, 184);
@@ -41,9 +45,48 @@ body {
   font-size: 1rem;
 }
 
+/* ---------- NAVBAR ---------- */
+
+
+/* ---------- CONTENT ---------- */
+
 .content {
   display: flex;
+  flex-wrap: wrap;
+  margin: 0 6vw;
+  justify-content: center;
 }
+
+.block-item {
+  display: flex;
+  flex-direction: column;
+  margin: 3vh 3vw;
+}
+
+.item-img {
+  display: flex;
+  width: 100px;
+  height: 100px;
+  border: 2px solid #000;
+  border-radius: 12px;
+}
+
+.item-title {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: .6vh 0;
+}
+
+.item-btn {
+  all: unset;
+  cursor: pointer;
+  border: 2px solid #000;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* ---------- CONTENT ---------- */
 
 .footer {
   display: flex;
