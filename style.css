@@ -14,6 +14,9 @@ body {
 .navbar {
   background: rgba(68, 70, 197, 1);
   background: linear-gradient(90deg, rgba(68, 70, 197, 1) 0%, rgba(100, 223, 223, 1) 100%);
+  position: sticky;
+  top: 0;
+  z-index: 99;
 }
 
 .navbar ul {
@@ -109,6 +112,24 @@ body {
 
 /* ---------- CONTENT ---------- */
 
+/* ---------- FOOTER ---------- */
+
 .footer {
   display: flex;
+  justify-content: center;
+
 }
+
+.footer .buttons {
+  display: flex;
+  margin: 6vh 6vw 0 6vh;
+  gap: 8vh;
+}
+
+.btn-prev,
+.btn-next {
+  all: unset;
+  cursor: pointer;
+}
+
+/* ---------- FOOTER ---------- */
