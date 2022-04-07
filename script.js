@@ -1,6 +1,6 @@
 const content = document.querySelector('.content');
 
-const total = 32;
+const total = 35;
 
 const titleText = 'Product #';
 let buttonText = 'Add to cart';
