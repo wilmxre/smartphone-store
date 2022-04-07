@@ -55,6 +55,10 @@ body {
 
 
 /* ---------- CONTENT ---------- */
+h2 {
+  display: flex;
+  justify-content: center;
+}
 
 .content {
   display: flex;
@@ -66,6 +70,8 @@ body {
 .block-item {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 3vh 3vw;
   border: 2px solid #000;
   border-radius: 8px;
@@ -101,7 +107,7 @@ body {
   text-align: center;
   background: rgb(128, 255, 219);
   background: linear-gradient(90deg, rgba(128, 255, 219, 1) 0%, rgba(100, 223, 223, 1) 34%, rgba(72, 191, 227, 1) 100%);
-  padding: .125vh;
+  padding: .125vh 1vh;
 }
 
 .item-btn:hover {
@@ -117,12 +123,11 @@ body {
 .footer {
   display: flex;
   justify-content: center;
-
 }
 
 .footer .buttons {
   display: flex;
-  margin: 6vh 6vw 0 6vh;
+  margin: 6vh 6vw;
   gap: 8vh;
 }
 
@@ -133,3 +138,20 @@ body {
 }
 
 /* ---------- FOOTER ---------- */
+
+
+/* ---------- MEDIA QUERIES ---------- */
+
+@media only screen and (max-width: 500px) {
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+  }
+
+  .navbar .right {
+    margin-left: 0;
+  }
+}
+
+/* ---------- MEDIA QUERIES ---------- */
