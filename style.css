@@ -12,9 +12,8 @@ body {
 /* ---------- NAVBAR ---------- */
 
 .navbar {
-  background: rgb(116, 0, 184);
-  background: linear-gradient(90deg, rgba(116, 0, 184, 1) 0%,
-      rgba(72, 191, 227, 1) 75%);
+  background: rgb(94, 96, 206);
+  background: linear-gradient(90deg, rgba(94, 96, 206, 1) 0%, rgba(128, 255, 219, 1) 100%);
 }
 
 .navbar ul {
@@ -65,14 +64,20 @@ body {
   display: flex;
   flex-direction: column;
   margin: 3vh 3vw;
+  border: 2px solid #000;
+  border-radius: 8px;
+  padding: 4vh;
+  background: rgb(94, 96, 206);
+  background: linear-gradient(90deg, rgba(94, 96, 206, 1) 0%, rgba(128, 255, 219, 1) 100%);
 }
 
 .item-img {
   display: flex;
-  width: 100px;
-  height: 100px;
+  width: 12vh;
+  height: 16vh;
   border: 2px solid #000;
   border-radius: 12px;
+  background-color: #eefafc;
 }
 
 .item-title {
