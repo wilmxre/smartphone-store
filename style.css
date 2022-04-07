@@ -1,0 +1,50 @@
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: 'Lora', serif;
+}
+
+.navbar {
+  background: rgb(116, 0, 184);
+  background: linear-gradient(90deg, rgba(116, 0, 184, 1) 0%,
+      rgba(72, 191, 227, 1) 75%);
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  margin: 0 6vw;
+  padding: 1rem;
+}
+
+.navbar ul a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.navbar .left,
+.navbar .right {
+  display: flex;
+  gap: 5vw;
+}
+
+.navbar .right {
+  display: flex;
+  margin-left: auto;
+}
+
+.navbar li {
+  display: flex;
+  font-size: 1rem;
+}
+
+.content {
+  display: flex;
+}
+
+.footer {
+  display: flex;
+}
