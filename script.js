@@ -23,10 +23,6 @@ footer.classList.add('footer');
 
 let createItems = (total) => {
   for (let i = 0; i < total; i++) {
-    buttons.appendChild(prev);
-    buttons.appendChild(next);
-    footer.appendChild(buttons);
-
     const item = document.createElement('div');
     item.classList.add('block-item');
 
@@ -69,4 +65,15 @@ let printItems = (start, end) => {
   return itemsContainer;
 }
 
-content.appendChild(printItems(500, 80));
+const itemsPerPage = 4;
+
+content.appendChild(printItems(0, itemsPerPage + 1));
+
+console.log(savedIndex);
+
+if (savedIndex >= itemsPerPage) {
+  buttons.appendChild(prev);
+  buttons.appendChild(next);
+  footer.appendChild(buttons);
+}
+
