@@ -1,6 +1,8 @@
 const content = document.querySelector('.content');
 const items = document.createElement('div');
-items.classList.add('items');
+
+const itemsContainer = document.createElement('div');
+itemsContainer.classList.add('items');
 
 const total = 35;
 const titleText = 'Product #';
@@ -48,20 +50,23 @@ let createItems = (total) => {
   return items;
 }
 
-
 itemsArr = Array.from(createItems(total).children);
 
 let savedIndex = 0;
 
 let printItems = (start, end) => {
-  if (end > total || end < 0) return;
+  if (end > total || end < 0 || start < 0 || start > total || end == total || start > end) {
+    return itemsContainer;
+  }
   let i = start;
+
   while (i < total) {
-    if (i == end) return;
-    content.appendChild(itemsArr[i])
+    if (i == end) return itemsContainer;
+    itemsContainer.appendChild(itemsArr[i])
     savedIndex = i++;
   }
+
+  return itemsContainer;
 }
 
-printItems(5, 8);
-// console.log(savedIndex);
+content.appendChild(printItems(500, 80));
