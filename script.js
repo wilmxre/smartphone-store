@@ -1,4 +1,6 @@
 const content = document.querySelector('.content');
+const items = document.createElement('div');
+items.classList.add('items');
 
 const total = 35;
 const titleText = 'Product #';
@@ -17,34 +19,49 @@ buttons.classList.add('buttons');
 const footer = document.querySelector('.footer');
 footer.classList.add('footer');
 
-const savedIndex = 0;
-
-for (let i = 0; i < total; i++) {
-  if (i == 10) {
+let createItems = (total) => {
+  for (let i = 0; i < total; i++) {
     buttons.appendChild(prev);
     buttons.appendChild(next);
     footer.appendChild(buttons);
-    savedIndex = i;
-    break;
+
+    const item = document.createElement('div');
+    item.classList.add('block-item');
+
+    const img = document.createElement('div');
+    img.classList.add('item-img');
+    item.appendChild(img);
+
+    const title = document.createElement('p');
+    title.classList.add('item-title');
+    title.textContent = titleText + (i + 1);
+    item.appendChild(title);
+
+    const btn = document.createElement('button');
+    btn.classList.add('item-btn');
+    btn.textContent = buttonText;
+    item.appendChild(btn);
+
+    items.appendChild(item);
+
   }
-
-  const item = document.createElement('div');
-  item.classList.add('block-item');
-  content.appendChild(item);
-
-  const img = document.createElement('div');
-  img.classList.add('item-img');
-  item.appendChild(img);
-
-  const title = document.createElement('p');
-  title.classList.add('item-title');
-  title.textContent = titleText + (i + 1);
-  item.appendChild(title);
-
-  const btn = document.createElement('button');
-  btn.classList.add('item-btn');
-  btn.textContent = buttonText;
-  item.appendChild(btn);
-
-  content.appendChild(item);
+  return items;
 }
+
+
+itemsArr = Array.from(createItems(total).children);
+
+let savedIndex = 0;
+
+let printItems = (start, end) => {
+  if (end > total || end < 0) return;
+  let i = start;
+  while (i < total) {
+    if (i == end) return;
+    content.appendChild(itemsArr[i])
+    savedIndex = i++;
+  }
+}
+
+printItems(5, 8);
+// console.log(savedIndex);

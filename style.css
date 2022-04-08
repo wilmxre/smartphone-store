@@ -60,7 +60,8 @@ h2 {
   justify-content: center;
 }
 
-.content {
+
+.items {
   display: flex;
   flex-wrap: wrap;
   margin: 0 6vw;
