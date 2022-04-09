@@ -79,3 +79,19 @@ let changePage = (page) => {
 
   content.appendChild(itemsContainer);
 }
+
+
+// go to previous page if not on first page
+let prevPage = () => {
+  if (currentPage > 1) {
+    changePage(--currentPage);
+  }
+}
+
+// go to next page if not on last one
+let nextPage = () => {
+  if (currentPage < pages) {
+    changePage(++currentPage);
+  }
+}
+
