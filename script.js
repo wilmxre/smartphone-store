@@ -95,3 +95,25 @@ let nextPage = () => {
   }
 }
 
+let goToPage = (page) => {
+  currentPage = page;
+  changePage(page);
+}
+
+let addPages = () => {
+  for (let i = 1; i <= pages; i++) {
+    buttons.innerHTML += `<li><a href="javascript:goToPage(${i})">${i}</a></li>`;
+  }
+
+  buttons.appendChild(prev);
+  buttons.appendChild(next);
+  content.appendChild(buttons);
+}
+
+window.onload = () => {
+  changePage(1);
+  addPages();
+
+  prev.addEventListener('click', prevPage);
+  next.addEventListener('click', nextPage);
+}
