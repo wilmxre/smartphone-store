@@ -48,3 +48,34 @@ let createItems = (total) => {
 }
 
 itemsArr = Array.from(createItems(total).children);
+
+let itemsPerPage = 3;
+let currentPage = 1;
+
+// how many pages are needed
+let numPages = (itemsArray) => {
+  return Math.ceil(itemsArray.length / itemsPerPage);
+}
+
+let pages = numPages(itemsArr);
+
+// page is in the right interval
+let changePage = (page) => {
+  if (page < 1) {
+    page = 1;
+  }
+  if (page > pages) {
+    page = pages;
+  }
+
+  itemsContainer.textContent = '';
+
+  // for every item in the current page's interval
+  for (let i = (page - 1) * itemsPerPage; i < (page * itemsPerPage); i++) {
+    if (i < itemsArr.length) {
+      itemsContainer.appendChild(itemsArr[i]);
+    }
+  }
+
+  content.appendChild(itemsContainer);
+}
