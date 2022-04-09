@@ -4,7 +4,7 @@ const items = document.createElement('div');
 const itemsContainer = document.createElement('div');
 itemsContainer.classList.add('items');
 
-const total = 35;
+const total = 15;
 const titleText = 'Product #';
 const buttonText = 'Add to cart';
 
@@ -25,6 +25,7 @@ let createItems = (total) => {
   for (let i = 0; i < total; i++) {
     const item = document.createElement('div');
     item.classList.add('block-item');
+    item.classList.add(`item-${i}`);
 
     const img = document.createElement('div');
     img.classList.add('item-img');
@@ -47,33 +48,3 @@ let createItems = (total) => {
 }
 
 itemsArr = Array.from(createItems(total).children);
-
-let savedIndex = 0;
-
-let printItems = (start, end) => {
-  if (end > total || end < 0 || start < 0 || start > total || end == total || start > end) {
-    return itemsContainer;
-  }
-  let i = start;
-
-  while (i < total) {
-    if (i == end) return itemsContainer;
-    itemsContainer.appendChild(itemsArr[i])
-    savedIndex = i++;
-  }
-
-  return itemsContainer;
-}
-
-const itemsPerPage = 4;
-
-content.appendChild(printItems(0, itemsPerPage + 1));
-
-console.log(savedIndex);
-
-if (savedIndex >= itemsPerPage) {
-  buttons.appendChild(prev);
-  buttons.appendChild(next);
-  footer.appendChild(buttons);
-}
-
