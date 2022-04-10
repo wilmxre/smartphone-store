@@ -95,19 +95,27 @@ let nextPage = () => {
   }
 }
 
+// go to selected page
 let goToPage = (page) => {
   currentPage = page;
   changePage(page);
 }
 
+// add new pages
 let addPages = () => {
+  const ul = document.createElement('ul');
+  ul.setAttribute('id', 'pgs');
+
   for (let i = 1; i <= pages; i++) {
-    buttons.innerHTML += `<li><a href="javascript:goToPage(${i})">${i}</a></li>`;
+    ul.innerHTML += `<li onclick="goToPage(${i})">${i}</li>`
   }
 
+  buttons.appendChild(ul);
   buttons.appendChild(prev);
   buttons.appendChild(next);
   content.appendChild(buttons);
+
+  return ul;
 }
 
 window.onload = () => {
