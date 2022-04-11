@@ -95,6 +95,7 @@ let nextPage = () => {
   }
 }
 
+// insert specific page to the page container
 let insertPage = (ul, index) => {
   ul.innerHTML += `<li id="${index}"onclick="goToPage(${index}, ul)">${index}</li>`
 }
@@ -103,21 +104,6 @@ let insertPage = (ul, index) => {
 let goToPage = (page, ul) => {
   currentPage = page;
   changePage(page);
-
-  // ul.textContent = '';
-
-  // if (page == pages) {
-  //   ul.innerHTML += `<li id="${page - 2}"onclick="goToPage(${page - 2}, ul)">${page - 2}</li>`
-  //   ul.innerHTML += `<li id="${page - 1}"onclick="goToPage(${page - 1}, ul)">${page - 1}</li>`
-  // }
-  // else {
-  // ul.innerHTML += `<li id="${page - 2}"onclick="goToPage(${page - 2}, ul)">${page - 2}</li>`
-  // ul.innerHTML += `<li id="${page - 1}"onclick="goToPage(${page - 1}, ul)">${page - 1}</li>`
-  // ul.innerHTML += `<li id="${page}"onclick="goToPage(${page}, ul)">${page}</li>`
-  // ul.innerHTML += `<li id="${page + 1}"onclick="goToPage(${page + 1}, ul)">${page + 1}</li>`
-  // ul.innerHTML += `<li id="${page + 2}"onclick="goToPage(${page + 2}, ul)">${page + 2}</li>`
-  // }
-
 }
 
 // add new pages
@@ -150,10 +136,12 @@ let addPages = () => {
     insertPage(ul, pages);
   }
 
-  buttons.appendChild(prev);
   buttons.appendChild(ul);
-  buttons.appendChild(next);
   content.appendChild(buttons);
+
+  if (pages != 1) {
+    buttons.appendChild(next);
+  }
 }
 
 window.onload = () => {
