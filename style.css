@@ -72,6 +72,7 @@ h2 {
   flex-wrap: wrap;
   margin: 0 6vw;
   justify-content: center;
+  padding-bottom: 4vh;
 }
 
 .block-item {
@@ -80,7 +81,6 @@ h2 {
   justify-content: center;
   align-items: center;
   margin: 3vh 3vw;
-  border: 2px solid #000;
   border-radius: 8px;
   padding: 4vh;
   background: rgba(83, 85, 202, .9);
@@ -96,7 +96,6 @@ h2 {
   display: flex;
   width: 12vh;
   height: 16vh;
-  border: 2px solid #000;
   border-radius: 12px;
   background-color: #eefafc;
 }
@@ -109,7 +108,6 @@ h2 {
 .item-btn {
   all: unset;
   cursor: pointer;
-  border: 1px solid #000;
   border-radius: 5px;
   text-align: center;
   background: rgb(128, 255, 219);
@@ -126,26 +124,45 @@ h2 {
 .buttons {
   display: flex;
   justify-content: center;
-  margin: 6vh 6vw;
-  gap: 8vh;
+  align-items: center;
+  margin: 4vh 4vw 1vh 4vw;
+  gap: 3vw;
 }
 
 .btn-prev,
 .btn-next {
-  all: unset;
+  border-radius: 6px;
+  background: rgb(128, 255, 219);
+  background: linear-gradient(90deg, rgba(128, 255, 219, 1) 0%, rgba(100, 223, 223, 1) 34%, rgba(72, 191, 227, 1) 100%);
+  border: none;
+  width: 150px;
+  height: 35px;
+  transition: all 0.5s;
   cursor: pointer;
+}
+
+.btn-prev:hover {
+  padding-right: 25px;
+}
+
+.btn-next:hover {
+  padding-left: 25px;
 }
 
 ul#pgs {
   display: flex;
-  gap: 2vw;
+  gap: 1.5vw;
   padding: 0;
   list-style: none;
   cursor: pointer;
 }
 
 #pgs li {
-  padding: 0 .5rem;
+  padding: 0 .2rem;
+}
+
+.ellipsis {
+  cursor: default;
 }
 
 /* ---------- CONTENT ---------- */

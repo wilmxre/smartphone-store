@@ -5,15 +5,16 @@ const itemsContainer = document.createElement('div');
 itemsContainer.classList.add('items');
 
 const total = 50;
+const itemsPerPage = 8;
 const titleText = 'Product #';
 const buttonText = 'Add to cart';
 
 const prev = document.createElement('button');
 prev.classList.add('btn-prev');
-prev.textContent = '<< Previous Page';
+prev.innerHTML = '&laquo; Previous Page';
 const next = document.createElement('button');
 next.classList.add('btn-next');
-next.textContent = 'Next Page >>';
+next.innerHTML = 'Next Page &raquo;';
 
 const buttons = document.createElement('div');
 buttons.classList.add('buttons');
@@ -49,7 +50,6 @@ let createItems = (total) => {
 
 itemsArr = Array.from(createItems(total).children);
 
-let itemsPerPage = 3;
 let currentPage = 1;
 
 // how many pages are needed
@@ -100,6 +100,10 @@ let insertPage = (ul, index) => {
   ul.innerHTML += `<li id="${index}"onclick="goToPage(${index}, ul)">${index}</li>`
 }
 
+const ellipsis = document.createElement('div');
+ellipsis.classList.add('ellipsis');
+ellipsis.innerHTML = '&hellip;';
+
 // go to selected page
 let goToPage = (page, ul) => {
   currentPage = page;
@@ -107,33 +111,25 @@ let goToPage = (page, ul) => {
 
   ul.textContent = '';
 
-  if (page == 1) {
-    prev.style.visibility = 'hidden';
-  }
-  else if (page > 1) {
-    next.style.visibility = 'visible';
-    prev.style.visibility = 'visible';
-  }
-
   switch (pages) {
     case 2:
       insertPage(ul, 1);
-      ul.innerHTML += '...';
+      ul.appendChild(ellipsis);
       insertPage(ul, 2);
       break;
     case 3:
       insertPage(ul, 1);
-      ul.innerHTML += '...';
+      ul.appendChild(ellipsis);
       insertPage(ul, 2);
-      ul.innerHTML += '...';
+      ul.appendChild(ellipsis);
       insertPage(ul, 3);
       break;
     case 4:
       insertPage(ul, 1);
-      ul.innerHTML += '...';
+      ul.appendChild(ellipsis);
       insertPage(ul, 2);
       insertPage(ul, 3);
-      ul.innerHTML += '...';
+      ul.appendChild(ellipsis);
       insertPage(ul, 4);
       break;
     default:
@@ -141,60 +137,60 @@ let goToPage = (page, ul) => {
         case 1:
           ul.textContent = '';
           insertPage(ul, 1);
-          ul.innerHTML += '...';
+          ul.appendChild(ellipsis);
           insertPage(ul, 2);
-          ul.innerHTML += '...';
+          ul.appendChild(ellipsis);
           insertPage(ul, pages)
           break;
         case 2:
           ul.textContent = '';
           insertPage(ul, 1);
-          ul.innerHTML += '...';
+          ul.appendChild(ellipsis);
           insertPage(ul, 2);
           insertPage(ul, 3);
-          ul.innerHTML += '...';
+          ul.appendChild(ellipsis);
           insertPage(ul, pages);
           break
         case 3:
           ul.textContent = '';
           insertPage(ul, 1);
-          ul.innerHTML += '...';
+          ul.appendChild(ellipsis);
           insertPage(ul, 2);
           insertPage(ul, 3);
           insertPage(ul, 4);
-          ul.innerHTML += '...';
+          ul.appendChild(ellipsis);
           insertPage(ul, pages);
           break;
         case 4:
           ul.textContent = '';
           insertPage(ul, 1);
-          ul.innerHTML += '...';
+          ul.appendChild(ellipsis);
           insertPage(ul, 3);
           insertPage(ul, 4);
           if (pages != 5) {
             insertPage(ul, 5);
           }
-          ul.innerHTML += '...';
+          ul.appendChild(ellipsis);
           insertPage(ul, pages);
           break;
         case pages:
           ul.textContent = '';
           insertPage(ul, 1);
-          ul.innerHTML += '...';
+          ul.appendChild(ellipsis);
           insertPage(ul, pages - 1);
-          ul.innerHTML += '...';
+          ul.appendChild(ellipsis);
           insertPage(ul, pages);
           break;
         default:
           ul.textContent = '';
           insertPage(ul, 1);
-          ul.innerHTML += '...';
+          ul.appendChild(ellipsis);
           insertPage(ul, page - 1);
           insertPage(ul, page);
           if (pages != page + 1) {
             insertPage(ul, page + 1);
           }
-          ul.innerHTML += '...';
+          ul.appendChild(ellipsis);
           insertPage(ul, pages);
       }
   }
@@ -208,33 +204,33 @@ let addPages = () => {
 
   if (pages == 2) {
     insertPage(ul, 1);
-    ul.innerHTML += '...';
+    ul.appendChild(ellipsis);
     insertPage(ul, 2);
   }
 
   else if (pages == 3) {
     insertPage(ul, 1);
-    ul.innerHTML += '...';
+    ul.appendChild(ellipsis);
     insertPage(ul, 2);
-    ul.innerHTML += '...';
+    ul.appendChild(ellipsis);
     insertPage(ul, 3);
   }
 
   else if (pages == 4) {
     insertPage(ul, 1);
-    ul.innerHTML += '...';
+    ul.appendChild(ellipsis);
     insertPage(ul, 2);
     insertPage(ul, 3);
-    ul.innerHTML += '...';
+    ul.appendChild(ellipsis);
     insertPage(ul, 4);
   }
 
   else if (pages >= 5) {
     insertPage(ul, 1);
-    ul.innerHTML += '...';
+    ul.appendChild(ellipsis);
     insertPage(ul, 2);
     insertPage(ul, 3);
-    ul.innerHTML += ' ...';
+    ul.appendChild(ellipsis);
     insertPage(ul, pages);
   }
 
@@ -243,14 +239,6 @@ let addPages = () => {
   buttons.appendChild(next);
   content.appendChild(buttons);
 
-  if (pages != 1) {
-    prev.style.visibility = 'hidden';
-  }
-
-  if (pages == 1) {
-    prev.style.visibility = 'hidden';
-    next.style.visibility = 'hidden';
-  }
 }
 
 window.onload = () => {
