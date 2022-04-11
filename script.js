@@ -4,7 +4,7 @@ const items = document.createElement('div');
 const itemsContainer = document.createElement('div');
 itemsContainer.classList.add('items');
 
-const total = 15;
+const total = 120;
 const titleText = 'Product #';
 const buttonText = 'Add to cart';
 
@@ -95,32 +95,70 @@ let nextPage = () => {
   }
 }
 
+let insertPage = (ul, index) => {
+  ul.innerHTML += `<li id="${index}"onclick="goToPage(${index}, ul)">${index}</li>`
+}
+
 // go to selected page
-let goToPage = (page) => {
+let goToPage = (page, ul) => {
   currentPage = page;
   changePage(page);
+
+  // ul.textContent = '';
+
+  // if (page == pages) {
+  //   ul.innerHTML += `<li id="${page - 2}"onclick="goToPage(${page - 2}, ul)">${page - 2}</li>`
+  //   ul.innerHTML += `<li id="${page - 1}"onclick="goToPage(${page - 1}, ul)">${page - 1}</li>`
+  // }
+  // else {
+  // ul.innerHTML += `<li id="${page - 2}"onclick="goToPage(${page - 2}, ul)">${page - 2}</li>`
+  // ul.innerHTML += `<li id="${page - 1}"onclick="goToPage(${page - 1}, ul)">${page - 1}</li>`
+  // ul.innerHTML += `<li id="${page}"onclick="goToPage(${page}, ul)">${page}</li>`
+  // ul.innerHTML += `<li id="${page + 1}"onclick="goToPage(${page + 1}, ul)">${page + 1}</li>`
+  // ul.innerHTML += `<li id="${page + 2}"onclick="goToPage(${page + 2}, ul)">${page + 2}</li>`
+  // }
+
 }
 
 // add new pages
+const ul = document.createElement('ul');
 let addPages = () => {
-  const ul = document.createElement('ul');
   ul.setAttribute('id', 'pgs');
 
-  for (let i = 1; i <= pages; i++) {
-    ul.innerHTML += `<li onclick="goToPage(${i})">${i}</li>`
+  if (pages == 2) {
+    insertPage(ul, 1);
+    insertPage(ul, 2);
   }
 
-  buttons.appendChild(ul);
+  if (pages == 3) {
+    insertPage(ul, 1);
+    insertPage(ul, 2);
+    insertPage(ul, 3);
+  }
+
+  if (pages == 4) {
+    insertPage(ul, 1);
+    insertPage(ul, 2);
+    insertPage(ul, 3);
+    insertPage(ul, 4);
+  }
+
+  if (pages >= 5) {
+    insertPage(ul, 1);
+    insertPage(ul, 2);
+    insertPage(ul, pages - 1);
+    insertPage(ul, pages);
+  }
+
   buttons.appendChild(prev);
+  buttons.appendChild(ul);
   buttons.appendChild(next);
   content.appendChild(buttons);
-
-  return ul;
 }
 
 window.onload = () => {
-  changePage(1);
   addPages();
+  changePage(1);
 
   prev.addEventListener('click', prevPage);
   next.addEventListener('click', nextPage);
