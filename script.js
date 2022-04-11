@@ -4,7 +4,7 @@ const items = document.createElement('div');
 const itemsContainer = document.createElement('div');
 itemsContainer.classList.add('items');
 
-const total = 120;
+const total = 50;
 const titleText = 'Product #';
 const buttonText = 'Add to cart';
 
@@ -104,6 +104,101 @@ let insertPage = (ul, index) => {
 let goToPage = (page, ul) => {
   currentPage = page;
   changePage(page);
+
+  ul.textContent = '';
+
+  if (page == 1) {
+    prev.style.visibility = 'hidden';
+  }
+  else if (page > 1) {
+    next.style.visibility = 'visible';
+    prev.style.visibility = 'visible';
+  }
+
+  switch (pages) {
+    case 2:
+      insertPage(ul, 1);
+      ul.innerHTML += '...';
+      insertPage(ul, 2);
+      break;
+    case 3:
+      insertPage(ul, 1);
+      ul.innerHTML += '...';
+      insertPage(ul, 2);
+      ul.innerHTML += '...';
+      insertPage(ul, 3);
+      break;
+    case 4:
+      insertPage(ul, 1);
+      ul.innerHTML += '...';
+      insertPage(ul, 2);
+      insertPage(ul, 3);
+      ul.innerHTML += '...';
+      insertPage(ul, 4);
+      break;
+    default:
+      switch (page) {
+        case 1:
+          ul.textContent = '';
+          insertPage(ul, 1);
+          ul.innerHTML += '...';
+          insertPage(ul, 2);
+          ul.innerHTML += '...';
+          insertPage(ul, pages)
+          break;
+        case 2:
+          ul.textContent = '';
+          insertPage(ul, 1);
+          ul.innerHTML += '...';
+          insertPage(ul, 2);
+          insertPage(ul, 3);
+          ul.innerHTML += '...';
+          insertPage(ul, pages);
+          break
+        case 3:
+          ul.textContent = '';
+          insertPage(ul, 1);
+          ul.innerHTML += '...';
+          insertPage(ul, 2);
+          insertPage(ul, 3);
+          insertPage(ul, 4);
+          ul.innerHTML += '...';
+          insertPage(ul, pages);
+          break;
+        case 4:
+          ul.textContent = '';
+          insertPage(ul, 1);
+          ul.innerHTML += '...';
+          insertPage(ul, 3);
+          insertPage(ul, 4);
+          if (pages != 5) {
+            insertPage(ul, 5);
+          }
+          ul.innerHTML += '...';
+          insertPage(ul, pages);
+          break;
+        case pages:
+          ul.textContent = '';
+          insertPage(ul, 1);
+          ul.innerHTML += '...';
+          insertPage(ul, pages - 1);
+          ul.innerHTML += '...';
+          insertPage(ul, pages);
+          break;
+        default:
+          ul.textContent = '';
+          insertPage(ul, 1);
+          ul.innerHTML += '...';
+          insertPage(ul, page - 1);
+          insertPage(ul, page);
+          if (pages != page + 1) {
+            insertPage(ul, page + 1);
+          }
+          ul.innerHTML += '...';
+          insertPage(ul, pages);
+      }
+  }
+
 }
 
 // add new pages
@@ -113,34 +208,48 @@ let addPages = () => {
 
   if (pages == 2) {
     insertPage(ul, 1);
+    ul.innerHTML += '...';
     insertPage(ul, 2);
   }
 
-  if (pages == 3) {
+  else if (pages == 3) {
     insertPage(ul, 1);
+    ul.innerHTML += '...';
     insertPage(ul, 2);
+    ul.innerHTML += '...';
     insertPage(ul, 3);
   }
 
-  if (pages == 4) {
+  else if (pages == 4) {
     insertPage(ul, 1);
+    ul.innerHTML += '...';
     insertPage(ul, 2);
     insertPage(ul, 3);
+    ul.innerHTML += '...';
     insertPage(ul, 4);
   }
 
-  if (pages >= 5) {
+  else if (pages >= 5) {
     insertPage(ul, 1);
+    ul.innerHTML += '...';
     insertPage(ul, 2);
-    insertPage(ul, pages - 1);
+    insertPage(ul, 3);
+    ul.innerHTML += ' ...';
     insertPage(ul, pages);
   }
 
+  buttons.appendChild(prev)
   buttons.appendChild(ul);
+  buttons.appendChild(next);
   content.appendChild(buttons);
 
   if (pages != 1) {
-    buttons.appendChild(next);
+    prev.style.visibility = 'hidden';
+  }
+
+  if (pages == 1) {
+    prev.style.visibility = 'hidden';
+    next.style.visibility = 'hidden';
   }
 }
 

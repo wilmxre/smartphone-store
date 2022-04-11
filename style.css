@@ -55,6 +55,12 @@ body {
 
 
 /* ---------- CONTENT ---------- */
+.content {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
 h2 {
   display: flex;
   justify-content: center;
@@ -128,6 +134,18 @@ h2 {
 .btn-next {
   all: unset;
   cursor: pointer;
+}
+
+ul#pgs {
+  display: flex;
+  gap: 2vw;
+  padding: 0;
+  list-style: none;
+  cursor: pointer;
+}
+
+#pgs li {
+  padding: 0 .5rem;
 }
 
 /* ---------- CONTENT ---------- */
