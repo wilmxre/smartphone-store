@@ -103,6 +103,7 @@ h2 {
 .item-title {
   text-align: center;
   margin: .6vh 0;
+  font-size: .9rem;
 }
 
 .item-btn {
@@ -113,6 +114,7 @@ h2 {
   background: rgb(128, 255, 219);
   background: linear-gradient(90deg, rgba(128, 255, 219, 1) 0%, rgba(100, 223, 223, 1) 34%, rgba(72, 191, 227, 1) 100%);
   padding: .125vh 1vh;
+  font-size: .9rem;
 }
 
 .item-btn:hover {
@@ -163,6 +165,10 @@ ul#pgs {
 
 .ellipsis {
   cursor: default;
+}
+
+.highlight {
+  font-size: 3rem;
 }
 
 /* ---------- CONTENT ---------- */

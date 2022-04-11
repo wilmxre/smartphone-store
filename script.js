@@ -4,8 +4,19 @@ const items = document.createElement('div');
 const itemsContainer = document.createElement('div');
 itemsContainer.classList.add('items');
 
+let vw = window.innerWidth;
+console.log(vw);
+let itemsPerPage = 8;
+
+if (vw >= 2560) {
+  itemsPerPage = 12;
+}
+
+if (vw <= 1920 && vw >= 1287) {
+  itemsPerPage = 10;
+}
+
 const total = 50;
-const itemsPerPage = 8;
 const titleText = 'Product #';
 const buttonText = 'Add to cart';
 
@@ -94,7 +105,6 @@ let nextPage = () => {
     changePage(++currentPage);
   }
 }
-
 // insert specific page to the page container
 let insertPage = (ul, index) => {
   ul.innerHTML += `<li id="${index}"onclick="goToPage(${index}, ul)">${index}</li>`
@@ -108,8 +118,6 @@ ellipsis.innerHTML = '&hellip;';
 let goToPage = (page, ul) => {
   currentPage = page;
   changePage(page);
-
-  ul.textContent = '';
 
   switch (pages) {
     case 2:
