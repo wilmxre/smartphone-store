@@ -2838,35 +2838,10 @@ const xiaomi = [
 ];
 // -------------------- XIAOMI --------------------
 
-let addNewProperties = (obj) => {
-  let i = 0;
-  obj.forEach((e) => {
-    if (typeof e === 'object') {
-      e["id"] = i++;
-      e["price"] = (Math.random() * (5000 - 1000) + 1000).toFixed(2);
-    }
-  });
-}
-
-addNewProperties(apple);
-addNewProperties(asus);
-addNewProperties(honor);
-addNewProperties(htc);
-addNewProperties(huawei);
-addNewProperties(lenovo);
-addNewProperties(lg);
-addNewProperties(motorola);
-addNewProperties(nokia);
-addNewProperties(oneplus);
-addNewProperties(samsung);
-addNewProperties(sony);
-addNewProperties(xiaomi);
-
-
-// console.log(apple[0])
-// console.log(asus[0])
-// console.log(honor[0])
-// console.log(htc[0])
+// console.log(apple)
+// console.log(asus)
+// console.log(honor)
+// console.log(htc)
 // console.log(huawei[0])
 // console.log(lenovo[0])
 // console.log(lg[0])
@@ -2890,3 +2865,33 @@ addNewProperties(xiaomi);
 // console.log(samsung.length)
 // console.log(sony.length)
 // console.log(xiaomi.length)
+
+
+let addNewProperties = (obj, index = 0) => {
+  obj.forEach((e) => {
+    if (typeof e === 'object') {
+      e["id"] = index++;
+      e["price"] = (Math.random() * (5000 - 1000) + 1000).toFixed(2);
+    }
+  });
+}
+
+let index = 0;
+
+addNewProperties(apple, index);
+addNewProperties(asus, index += apple.length);
+addNewProperties(honor, index += asus.length);
+addNewProperties(htc, index += honor.length);
+addNewProperties(huawei, index += htc.length);
+addNewProperties(lenovo, index += huawei.length);
+addNewProperties(lg, index += lenovo.length);
+addNewProperties(motorola, index += lg.length);
+addNewProperties(nokia, index += motorola.length);
+addNewProperties(oneplus, index += nokia.length);
+addNewProperties(samsung, index += oneplus.length);
+addNewProperties(sony, index += samsung.length);
+addNewProperties(xiaomi, index += sony.length);
+
+let smartphones = apple.concat(asus).concat(honor).concat(htc).concat(huawei).concat(lenovo).concat(lg).concat(motorola).concat(nokia).concat(oneplus).concat(samsung).concat(sony).concat(xiaomi);
+
+console.log(smartphones)
