@@ -24,3 +24,5 @@ let fillItems = () => {
 }
 
 fillItems();
+
+console.log(smartphones.length);

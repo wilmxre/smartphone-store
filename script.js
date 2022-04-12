@@ -15,7 +15,7 @@ let itemsPerPage = 24;
 //   itemsPerPage = 24;
 // }
 
-const total = 101;
+const total = 555;
 const titleText = 'Product #';
 const buttonText = 'Add to cart';
 
@@ -93,6 +93,10 @@ let changePage = (page) => {
   }
 
   content.appendChild(itemsContainer);
+  buttons.appendChild(prev)
+  buttons.appendChild(ul);
+  buttons.appendChild(next);
+  content.appendChild(buttons);
 }
 
 
@@ -248,10 +252,10 @@ let addPages = () => {
     insertPage(ul, pages);
   }
 
-  buttons.appendChild(prev)
-  buttons.appendChild(ul);
-  buttons.appendChild(next);
-  content.appendChild(buttons);
+  // buttons.appendChild(prev)
+  // buttons.appendChild(ul);
+  // buttons.appendChild(next);
+  // content.appendChild(buttons);
 
 }
 
