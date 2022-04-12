@@ -1,3 +1,4 @@
+/* wilmxre - 2022 */
 body {
   display: flex;
   flex-direction: column;
@@ -56,9 +57,7 @@ body {
 
 /* ---------- CONTENT ---------- */
 .content {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
+  flex: 1;
 }
 
 h2 {
@@ -72,7 +71,6 @@ h2 {
   flex-wrap: wrap;
   margin: 0 6vw;
   justify-content: center;
-  padding-bottom: 4vh;
 }
 
 .block-item {
@@ -178,10 +176,15 @@ ul#pgs {
 .footer {
   display: flex;
   justify-content: center;
+  background: rgba(38, 40, 125, 1);
+  background: linear-gradient(90deg, rgba(38, 40, 125, 1) 0%, rgba(27, 136, 136, 1) 100%);
+  color: #fff;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 1rem;
 }
 
 /* ---------- FOOTER ---------- */
-
 
 /* ---------- MEDIA QUERIES ---------- */
 

@@ -1,22 +1,12 @@
+// wilmxre - 2022 
 const content = document.querySelector('.content');
 const items = document.createElement('div');
 
 const itemsContainer = document.createElement('div');
 itemsContainer.classList.add('items');
+let itemsPerPage = 25;
 
-let vw = window.innerWidth;
-console.log(vw);
-let itemsPerPage = 8;
-
-if (vw >= 2560) {
-  itemsPerPage = 12;
-}
-
-if (vw <= 1920 && vw >= 1287) {
-  itemsPerPage = 10;
-}
-
-const total = 50;
+const total = 75;
 const titleText = 'Product #';
 const buttonText = 'Add to cart';
 
@@ -237,7 +227,6 @@ let addPages = () => {
     insertPage(ul, 1);
     ul.appendChild(ellipsis);
     insertPage(ul, 2);
-    insertPage(ul, 3);
     ul.appendChild(ellipsis);
     insertPage(ul, pages);
   }
