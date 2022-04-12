@@ -36,7 +36,7 @@ let createItems = (total) => {
   for (let i = 0; i < total; i++) {
     const item = document.createElement('div');
     item.classList.add('block-item');
-    item.classList.add(`item-${i}`);
+    // item.classList.add(`item-${i}`);
 
     const img = document.createElement('img');
     img.classList.add('item-img');
