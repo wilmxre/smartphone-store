@@ -8,14 +8,8 @@ itemsContainer.classList.add('items');
 vw = window.innerWidth;
 let itemsPerPage = 24;
 
-// if (vw <= 1920 && vw >= 1287) {
-//   itemsPerPage = 25;
-// }
-// else {
-//   itemsPerPage = 24;
-// }
 
-const total = 101;
+const total = 555;
 const titleText = 'Product #';
 const buttonText = 'Add to cart';
 
@@ -32,13 +26,13 @@ buttons.classList.add('buttons');
 const footer = document.querySelector('.footer');
 footer.classList.add('footer');
 
-console.log(window.innerHeight)
+const pageNumber = document.querySelector('.this-page');
 
 let createItems = (total) => {
   for (let i = 0; i < total; i++) {
     const item = document.createElement('div');
     item.classList.add('block-item');
-    item.classList.add(`item-${i}`);
+    // item.classList.add(`item-${i}`);
 
     const img = document.createElement('img');
     img.classList.add('item-img');
@@ -94,14 +88,24 @@ let changePage = (page) => {
     }
   }
 
+  const topDiv = document.querySelector('.top');
+  topDiv.style.visibility = 'visible';
+  topDiv.addEventListener('click', goToTop);
   content.appendChild(itemsContainer);
+  buttons.appendChild(prev)
+  buttons.appendChild(ul);
+  buttons.appendChild(next);
+  content.appendChild(buttons);
 }
 
+let goToTop = () => window.scrollTo(0, 0);
 
 // go to previous page if not on first page
 let prevPage = () => {
   if (currentPage > 1) {
     changePage(--currentPage);
+    shiftPages(currentPage);
+    goToTop();
   }
 }
 
@@ -109,6 +113,8 @@ let prevPage = () => {
 let nextPage = () => {
   if (currentPage < pages) {
     changePage(++currentPage);
+    shiftPages(currentPage);
+    goToTop();
   }
 }
 // insert specific page to the page container
@@ -120,11 +126,8 @@ const ellipsis = document.createElement('div');
 ellipsis.classList.add('ellipsis');
 ellipsis.innerHTML = '&hellip;';
 
-// go to selected page
-let goToPage = (page, ul) => {
-  currentPage = page;
-  changePage(page);
-
+let shiftPages = (page) => {
+  pageNumber.textContent = `Current page: ${page}`;
   switch (pages) {
     case 2:
       ul.textContent = '';
@@ -211,7 +214,14 @@ let goToPage = (page, ul) => {
           insertPage(ul, pages);
       }
   }
+}
 
+// go to selected page
+let goToPage = (page, ul) => {
+  currentPage = page;
+  changePage(page);
+  shiftPages(page);
+  pageNumber.textContent = `Current page: ${page}`;
 }
 
 // add new pages
@@ -249,12 +259,6 @@ let addPages = () => {
     ul.appendChild(ellipsis);
     insertPage(ul, pages);
   }
-
-  buttons.appendChild(prev)
-  buttons.appendChild(ul);
-  buttons.appendChild(next);
-  content.appendChild(buttons);
-
 }
 
 window.onload = () => {
