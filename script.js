@@ -32,8 +32,6 @@ buttons.classList.add('buttons');
 const footer = document.querySelector('.footer');
 footer.classList.add('footer');
 
-console.log(window.innerHeight)
-
 let createItems = (total) => {
   for (let i = 0; i < total; i++) {
     const item = document.createElement('div');
