@@ -2838,35 +2838,6 @@ const xiaomi = [
 ];
 // -------------------- XIAOMI --------------------
 
-// console.log(apple)
-// console.log(asus)
-// console.log(honor)
-// console.log(htc)
-// console.log(huawei[0])
-// console.log(lenovo[0])
-// console.log(lg[0])
-// console.log(motorola[0])
-// console.log(nokia[0])
-// console.log(oneplus[0])
-// console.log(samsung[0])
-// console.log(sony[0])
-// console.log(xiaomi[0])
-
-// console.log(apple.length)
-// console.log(asus.length)
-// console.log(honor.length)
-// console.log(htc.length)
-// console.log(huawei.length)
-// console.log(lenovo.length)
-// console.log(lg.length)
-// console.log(motorola.length)
-// console.log(nokia.length)
-// console.log(oneplus.length)
-// console.log(samsung.length)
-// console.log(sony.length)
-// console.log(xiaomi.length)
-
-
 let addNewProperties = (obj, index = 0) => {
   obj.forEach((e) => {
     if (typeof e === 'object') {
@@ -2893,5 +2864,3 @@ addNewProperties(sony, index += samsung.length);
 addNewProperties(xiaomi, index += sony.length);
 
 let smartphones = apple.concat(asus).concat(honor).concat(htc).concat(huawei).concat(lenovo).concat(lg).concat(motorola).concat(nokia).concat(oneplus).concat(samsung).concat(sony).concat(xiaomi);
-
-console.log(smartphones)
