@@ -25,6 +25,8 @@ buttons.classList.add('buttons');
 const footer = document.querySelector('.footer');
 footer.classList.add('footer');
 
+const pageNumber = document.querySelector('.this-page');
+
 let createItems = (total) => {
   for (let i = 0; i < total; i++) {
     const item = document.createElement('div');
@@ -124,6 +126,7 @@ ellipsis.classList.add('ellipsis');
 ellipsis.innerHTML = '&hellip;';
 
 let shiftPages = (page) => {
+  pageNumber.textContent = `Current page: ${page}`;
   switch (pages) {
     case 2:
       ul.textContent = '';
@@ -217,6 +220,7 @@ let goToPage = (page, ul) => {
   currentPage = page;
   changePage(page);
   shiftPages(page);
+  pageNumber.textContent = `Current page: ${page}`;
 }
 
 // add new pages
