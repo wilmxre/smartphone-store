@@ -78,9 +78,9 @@ h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 3vh 3vw;
+  margin: 2rem;
   border-radius: 8px;
-  padding: 4vh;
+  padding: 2rem;
   background: rgba(83, 85, 202, .9);
   background: linear-gradient(0deg, rgba(83, 85, 202, .9) 0%, rgba(100, 223, 223, 1) 100%);
 }
@@ -92,16 +92,24 @@ h2 {
 
 .item-img {
   display: flex;
-  width: 12vh;
-  height: 16vh;
+  width: 8rem;
+  height: 10rem;
   border-radius: 12px;
   background-color: #eefafc;
 }
 
-.item-title {
+.item-title,
+.item-price {
   text-align: center;
-  margin: .6vh 0;
   font-size: .9rem;
+}
+
+.item-title {
+  margin: .2rem;
+}
+
+.item-price {
+  margin: 0 .2rem .4rem .2rem;
 }
 
 .item-btn {
@@ -111,7 +119,7 @@ h2 {
   text-align: center;
   background: rgb(128, 255, 219);
   background: linear-gradient(90deg, rgba(128, 255, 219, 1) 0%, rgba(100, 223, 223, 1) 34%, rgba(72, 191, 227, 1) 100%);
-  padding: .125vh 1vh;
+  padding: .125rem .8rem;
   font-size: .9rem;
 }
 

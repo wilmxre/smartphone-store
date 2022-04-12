@@ -6,14 +6,14 @@ const itemsContainer = document.createElement('div');
 itemsContainer.classList.add('items');
 
 vw = window.innerWidth;
-let itemsPerPage = 0;
+let itemsPerPage = 24;
 
-if (vw <= 1920 && vw >= 1287) {
-  itemsPerPage = 25;
-}
-else {
-  itemsPerPage = 24;
-}
+// if (vw <= 1920 && vw >= 1287) {
+//   itemsPerPage = 25;
+// }
+// else {
+//   itemsPerPage = 24;
+// }
 
 const total = 101;
 const titleText = 'Product #';
@@ -32,13 +32,15 @@ buttons.classList.add('buttons');
 const footer = document.querySelector('.footer');
 footer.classList.add('footer');
 
+console.log(window.innerHeight)
+
 let createItems = (total) => {
   for (let i = 0; i < total; i++) {
     const item = document.createElement('div');
     item.classList.add('block-item');
     item.classList.add(`item-${i}`);
 
-    const img = document.createElement('div');
+    const img = document.createElement('img');
     img.classList.add('item-img');
     item.appendChild(img);
 
@@ -46,6 +48,11 @@ let createItems = (total) => {
     title.classList.add('item-title');
     title.textContent = titleText + (i + 1);
     item.appendChild(title);
+
+    const price = document.createElement('p');
+    price.classList.add('item-price');
+    price.textContent = 1000.99;
+    item.appendChild(price);
 
     const btn = document.createElement('button');
     btn.classList.add('item-btn');
