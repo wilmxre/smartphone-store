@@ -4,9 +4,18 @@ const items = document.createElement('div');
 
 const itemsContainer = document.createElement('div');
 itemsContainer.classList.add('items');
-let itemsPerPage = 25;
 
-const total = 75;
+vw = window.innerWidth;
+let itemsPerPage = 0;
+
+if (vw <= 1920 && vw >= 1287) {
+  itemsPerPage = 25;
+}
+else {
+  itemsPerPage = 24;
+}
+
+const total = 101;
 const titleText = 'Product #';
 const buttonText = 'Add to cart';
 
@@ -111,11 +120,13 @@ let goToPage = (page, ul) => {
 
   switch (pages) {
     case 2:
+      ul.textContent = '';
       insertPage(ul, 1);
       ul.appendChild(ellipsis);
       insertPage(ul, 2);
       break;
     case 3:
+      ul.textContent = '';
       insertPage(ul, 1);
       ul.appendChild(ellipsis);
       insertPage(ul, 2);
@@ -123,6 +134,7 @@ let goToPage = (page, ul) => {
       insertPage(ul, 3);
       break;
     case 4:
+      ul.textContent = '';
       insertPage(ul, 1);
       ul.appendChild(ellipsis);
       insertPage(ul, 2);
