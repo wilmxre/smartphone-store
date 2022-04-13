@@ -8,7 +8,6 @@ itemsContainer.classList.add('items');
 vw = window.innerWidth;
 let itemsPerPage = 24;
 
-
 const total = 555;
 const titleText = 'Product #';
 const buttonText = 'Add to cart';
