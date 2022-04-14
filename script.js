@@ -11,6 +11,7 @@ let itemsPerPage = 24;
 const total = 555;
 const titleText = 'Product #';
 const buttonText = 'Add to cart';
+const priceText = 1000.99;
 
 const prev = document.createElement('button');
 prev.classList.add('btn-prev');
@@ -31,7 +32,6 @@ let createItems = (total) => {
   for (let i = 0; i < total; i++) {
     const item = document.createElement('div');
     item.classList.add('block-item');
-    // item.classList.add(`item-${i}`);
 
     const img = document.createElement('img');
     img.classList.add('item-img');
@@ -44,17 +44,19 @@ let createItems = (total) => {
 
     const price = document.createElement('p');
     price.classList.add('item-price');
-    price.textContent = 1000.99;
+    price.textContent = priceText;
     item.appendChild(price);
 
     const btn = document.createElement('button');
     btn.classList.add('item-btn');
     btn.textContent = buttonText;
+    // btn.onclick = (e) => { console.log(e.path[1].id) }; // -- the id of the clicked item
+    // btn.onclick = () => { window.location.href = './location/to/product/page' }
+    btn.onclick = (e) => { console.log(e.path[1].id); }
     item.appendChild(btn);
-
     items.appendChild(item);
-
   }
+
   return items;
 }
 

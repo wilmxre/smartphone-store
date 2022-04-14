@@ -101,6 +101,9 @@ h2 {
   height: 10rem;
   border-radius: 12px;
   background-color: #eefafc;
+  cursor: pointer;
+  user-select: none;
+  background-color: #000;
 }
 
 .item-title,
@@ -113,6 +116,11 @@ h2 {
   margin: .2rem;
   width: 8rem;
   word-wrap: break-word;
+  cursor: pointer;
+}
+
+.item-title:active {
+  cursor: default;
 }
 
 .item-price {
