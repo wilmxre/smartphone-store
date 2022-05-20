@@ -250,41 +250,47 @@ body {
 
 .spec
 {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 90%;
-    font-size: 200%;
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+  
+    font-size: 2rem;
 }
 
 .spec2
 {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 90%;
+    display: flex;
+    justify-content:space-between;
+    /* gap: 1rem; */
     font-size: 100%;
-    float: left;
+    width: 80%;
+    margin: 0 auto;
+  
+}
+
+.wrap
+{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .data
 {
-    display: block;
-    margin-left: auto;
+    display: flex;
+    /* margin-left: auto;
     margin-right: auto;
-    width: -10%;
-    font-size: 1000%;
-    float: right;
+    width: -10%; */
+    font-size: 5rem;
+    /* float: right; */
+    justify-self: center;
+    margin-left: auto;
+}
+.spec3
+{
+  margin-left: 5rem;
 }
 
 
-#bal {
-  width: 48%;
-  border: 1px solid red;
-  padding: 1em;
-}
 
-#jobb {
-  width: 48%;
-  float: right;
-}
